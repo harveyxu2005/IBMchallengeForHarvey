@@ -1,0 +1,86 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+          <div class="add-form-container">
+            <div class="ui icon message" *ngIf="newPersonInfo">
+              <i class="notched check green icon"></i>
+              <i class="close icon" (click)="newPersonInfo = null"></i>
+              <div class="content">
+                <div class="header">
+                  New person information added!
+                </div>
+                <p>Name: {{newPersonInfo.firstName}} {{newPersonInfo.lastName}}</p>
+              </div>
+            </div>
+            <form class="ui big form" #contactForm="ngForm" (submit)="onSubmit(contactForm)" [class.loading]="loading">
+              <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td><label for="firstName">First Name *</label></td>
+                      <td><input type="text" placeholder="First Name" name="firstName" id="firstName" ngModel required></td>
+                    </tr>
+                    <tr>
+                      <td><label>Last Name *</label></td>
+                      <td><input type="text" placeholder="Last Name" name="lastName" ngModel required></td>
+                    </tr>
+                    <tr>
+                      <td><label>Address</label></td>
+                      <td><input type="text" placeholder="Address" name="address" ngModel></td>
+                    </tr>
+                    <tr>
+                        <td><label>Company</label></td>
+                        <td><input type="text"  placeholder="Company Name" name="company" ngModel></td>
+                    </tr>
+                    <tr>
+                        <td><label>Salary</label></td>
+                        <td><input type="text"  placeholder="Salary" name="salary" ngModel></td>
+                    </tr>
+                  </tbody>
+                </table>
+              <button type="submit" class="ui submit large grey button right floated" [disabled]="!contactForm.valid">Submit</button>
+            </form>
+          </div>
+          
+      </div>
+      
+      <div class="col-sm-6">
+          <div class="add-form-container" *ngIf="newPersonInfo">
+            <div class="panel panel-primary">
+                <div class="panel-heading"  style="text-align:center">The following person information is just added.</div>
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                          <tr>
+                            <td><label>First Name</label></td>
+                            <td><label type="text" [innerHTML]="newPersonInfo.firstName" name="firstName"></label></td>
+                          </tr>
+                          <tr>
+                            <td><label>Last Name</label></td>
+                            <td><label type="text"  [innerHTML]="newPersonInfo.lastName" name="lastName" ></label></td>
+                          </tr>
+                          <tr>
+                            <td><label>Address</label></td>
+                            <td><label type="text" [innerHTML]="newPersonInfo.address" name="address" ></label></td>
+                          </tr>
+                          <tr>
+                              <td><label>Company</label></td>
+                              <td><label type="text" [innerHTML]="newPersonInfo.company" name="company" ></label></td>
+                          </tr>
+                          <tr>
+                              <td><label>Salary</label></td>
+                              <td><label type="text" [innerHTML]="newPersonInfo.salary" name="salary" ></label></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            <div>
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+
+

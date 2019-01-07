@@ -1,0 +1,24 @@
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading panelHeader">
+          Salary total according to company name
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Company Name</th>
+                    <th>Company Costs</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of companyCosts">
+                    <td>{{c.companyName}}</td>
+                    <td>{{c.cost}}</td>
+                  </tr>        
+                </tbody>
+              </table>
+        </div>
+    </div>   
+</div>
